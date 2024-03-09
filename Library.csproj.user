@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\AllBooksPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\MemberPages\BookInfoPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\MemberPages\BorrowedPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\MemberPages\FavoritesPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\MemberPages\SettingsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\AdminWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\MemberWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\SignUpWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\AllBooksPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MemberPages\BookInfoPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MemberPages\BorrowedPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MemberPages\FavoritesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MemberPages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\MemberWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\SignUpWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

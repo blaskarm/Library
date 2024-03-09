@@ -1,0 +1,70 @@
+﻿<Window x:Class="Library.Windows.SignUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library.Windows"
+        mc:Ignorable="d"
+        Title="Sign Up" Height="500" Width="400"
+        FontFamily="Arial" ResizeMode="CanMinimize" Foreground="#404040">
+
+
+    <Border Padding="30">
+        <StackPanel>
+
+            <!-- Top Label -->
+            <TextBlock Text="Create Account" HorizontalAlignment="Center" Padding="2"
+                       FontSize="28" />
+
+
+            <!-- Username input -->
+            <TextBlock Text="Full Name" Padding="2" Margin="40 10 40 0" 
+                       FontSize="14"/>
+
+            <TextBox x:Name="SignUpNameTextBox" Padding="4" Margin="40 5 40 0"
+                     FontSize="14"/>
+
+
+            <!-- Email input -->
+            <TextBlock Text="Email" Padding="2" Margin="40 10 40 0"
+                       FontSize="14"/>
+
+            <TextBox x:Name="SignUpEmailTextBox" Padding="4" Margin="40 5 40 0"
+                     FontSize="14" />
+
+
+            <!-- Password input -->
+            <TextBlock Text="Password" Padding="2" Margin="40 10 40 0"
+                       FontSize="14"/>
+
+            <PasswordBox x:Name="SignUpPasswordBox" Padding="4" Margin="40 5 40 0"
+                         FontSize="14" />
+
+
+            <!-- Confirm Password input -->
+            <TextBlock Text="Confirm Password" Padding="2" Margin="40 10 40 0"
+                       FontSize="14"/>
+
+            <PasswordBox x:Name="SignUpConfirmPasswordBox" Padding="4" Margin="40 5 40 0"
+                         FontSize="14" />
+
+
+            <!-- Passwords does not match text -->
+            <TextBlock x:Name="PasswordDontMatchText" Text="Password did not match*"
+                       HorizontalAlignment="Center" Padding="2" Margin="0 10 0 0"
+                       Visibility="Hidden"
+                       FontSize="11"
+                       Foreground="#cc0000"/>
+
+
+            <!-- Create account button -->
+            <Button x:Name="SignUpButton" Style="{DynamicResource RoundedButtonStyle}"
+                    Content="Sign Up!" Padding="4" Margin="60 10 60 0"
+                    Click="SignUpButton_Click"
+                    FontSize="20" 
+                    Cursor="Hand"
+                    Foreground="#404040"/>
+
+        </StackPanel>
+    </Border>
+</Window>
