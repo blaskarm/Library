@@ -63,7 +63,7 @@
                     Click="SignUpButton_Click"
                     FontSize="20" 
                     Cursor="Hand"
-                    Foreground="#404040"/>
+                    Foreground="#e6e6e6"/>
 
         </StackPanel>
     </Border>

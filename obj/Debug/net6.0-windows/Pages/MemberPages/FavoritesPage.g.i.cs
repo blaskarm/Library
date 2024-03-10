@@ -61,7 +61,7 @@ namespace Library.Pages.MemberPages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Library;component/pages/memberpages/favoritespage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library;V1.0.0.0;component/pages/memberpages/favoritespage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Pages\MemberPages\FavoritesPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

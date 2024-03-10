@@ -3,10 +3,79 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:Library.Windows"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="Administrator" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
+        Foreground="#e6e6e6" Background="#404040" FontFamily="Arial">
+
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+
     <Grid>
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="logoutButton" Click="logoutButton_Click"  Content="Logout" Width="100" Height="30" Margin="10 10 2 10" Padding="5"
+                    Style="{DynamicResource RoundedButtonStyle}" Foreground="#e6e6e6">
+
+            </Button>
+
+            <TextBlock Text="Library Management" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="16" Padding="5"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Grid Width="300" HorizontalAlignment="Left" >
+                <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
+                               Panel.ZIndex="1" Text="Search here ..."
+                               Visibility="{Binding ElementName=txtSearch,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
+
+                <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}"/>
+
+
+            </Grid>
+            <Button Margin="10 0 30 0" Style="{DynamicResource topButton}">
+                <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
+                            Foreground="#b0b9c6" HorizontalAlignment="Center"/>
+            </Button>
+            <TextBlock Text="{Binding FullName}" VerticalAlignment="Center" FontSize="16" Padding="5" Margin="0 0 30 0"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <Button x:Name="libraryButton" Content="Show Library" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 50 10 5"
+                        Click="libraryButton_Click" Foreground="#e6e6e6"/>
+
+
+
+                <Button x:Name="borrowedButton" Content="Borrowed" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 0 10 5"
+                        Click="borrowedButton_Click" Foreground="#e6e6e6"/>
+
+                <Button x:Name="addBookButton" Content="Add New Book" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 0 10 5"
+                        Click="addBookButton_Click" Foreground="#e6e6e6"/>
+
+
+            </StackPanel>
+
+            <Frame x:Name="booksFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+
+
+        </Grid>
+
+
     </Grid>
+
+
 </Window>

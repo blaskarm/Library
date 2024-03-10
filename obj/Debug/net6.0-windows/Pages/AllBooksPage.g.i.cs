@@ -61,7 +61,7 @@ namespace Library.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Library;component/pages/allbookspage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library;V1.0.0.0;component/pages/allbookspage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\AllBooksPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

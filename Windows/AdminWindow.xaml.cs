@@ -1,4 +1,5 @@
 ﻿using Library.Items;
+using Library.Pages.AdminPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace Library.Windows
     /// </summary>
     public partial class AdminWindow : Window
     {
+        BooksPage booksPage;
+
         DatabaseConnection connection;
         Administrator admin;
 
@@ -29,6 +32,31 @@ namespace Library.Windows
 
             this.connection = connection;
             this.admin = admin;
+
+            booksPage = new BooksPage();
+            booksFrame.Navigate(booksPage);
+        }
+
+        private void libraryButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void borrowedButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addBookButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }
