@@ -1,4 +1,4 @@
-﻿using Library.Items;
+﻿    using Library.Items;
 using Library.Pages;
 using Library.Pages.MemberPages;
 using System;
@@ -72,7 +72,9 @@ namespace Library.Windows
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void libraryButton_Click(object sender, RoutedEventArgs e)

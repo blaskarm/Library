@@ -47,7 +47,6 @@ C:\Users\Emil\source\repos\Library\bin\Debug\net6.0-windows\runtimes\browser\lib
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AllBooksPage.baml
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Windows\AdminWindow.baml
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Windows\MemberWindow.baml
-C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Library.csproj.CopyComplete
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\BookInfoPage.g.cs
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\BookInfoPage.baml
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\BorrowedPage.g.cs
@@ -56,3 +55,5 @@ C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\Fa
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\FavoritesPage.baml
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\SettingsPage.g.cs
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\SettingsPage.baml
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Library.sourcelink.json
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Library.csproj.Up2Date
