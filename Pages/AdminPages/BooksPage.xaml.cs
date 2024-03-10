@@ -1,6 +1,9 @@
-﻿using Library.Windows;
+﻿using Library.Items;
+using Library.Pages.MemberPages;
+using Library.Windows;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +24,38 @@ namespace Library.Pages.AdminPages
     /// </summary>
     public partial class BooksPage : Page
     {
-        public BooksPage()
-        {
-            AdminWindow adminWindow;
+        AdminWindow adminWindow;
+        BookInfoPage bookInfoPage;
+        DatabaseConnection connection;
 
+        Book book;
+        Administrator admin;
+
+        ObservableCollection<Book> books;
+
+        public BooksPage(AdminWindow adminWindow, BookInfoPage bookInfoPage, DatabaseConnection connection, Administrator admin,
+                         ObservableCollection<Book> books)
+        {
             InitializeComponent();
+
+            this.adminWindow = adminWindow;
+            this.bookInfoPage = bookInfoPage;
+            this.connection = connection;
+            this.admin = admin;
+            this.books = books;
+
+            booksDataGrid.ItemsSource = books;
+        }
+
+        private void booksDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(booksDataGrid.SelectedItem != null)
+            {
+                book = books[booksDataGrid.SelectedIndex];
+                booksDataGrid.SelectedItem = null;
+                bookInfoPage.GetCurrentbook(book);
+                adminWindow.ShowBookInfoFrame();
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library.Items;
+using Library.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,18 @@ namespace Library.Pages.AdminPages
     /// </summary>
     public partial class BookInfoPage : Page
     {
-        public BookInfoPage()
+        AdminWindow adminWindow;
+        DatabaseConnection connection;
+
+        Book book;
+
+
+        public BookInfoPage(AdminWindow adminWindow, DatabaseConnection connection)
         {
             InitializeComponent();
+
+            this.adminWindow = adminWindow;
+            this.connection = connection;
         }
 
         private void removeButton_Click(object sender, RoutedEventArgs e)
@@ -32,7 +43,13 @@ namespace Library.Pages.AdminPages
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-
+            adminWindow.ShowBooksFrame();
+        }
+        
+        public void GetCurrentbook(Book book)
+        {
+            this.book = book;
+            this.DataContext = book;
         }
     }
 }

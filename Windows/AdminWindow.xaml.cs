@@ -2,6 +2,7 @@
 using Library.Pages.AdminPages;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,14 @@ namespace Library.Windows
     public partial class AdminWindow : Window
     {
         BooksPage booksPage;
+        BookInfoPage bookInfoPage;
+        AddBookPage addBookPage;
 
         DatabaseConnection connection;
         Administrator admin;
+
+        ObservableCollection<Book> books;
+        ObservableCollection<Book> borrowed;
 
         public AdminWindow(DatabaseConnection connection, Administrator admin)
         {
@@ -33,13 +39,44 @@ namespace Library.Windows
             this.connection = connection;
             this.admin = admin;
 
-            booksPage = new BooksPage();
+            books = connection.GetBooksAsObservableCollection();
+
+            bookInfoPage = new BookInfoPage(this, connection);
+            bookInfoFrame.Navigate(bookInfoPage);
+            bookInfoFrame.Visibility = Visibility.Hidden;
+
+            booksPage = new BooksPage(this, bookInfoPage, connection, admin, books);
             booksFrame.Navigate(booksPage);
+
+            addBookPage = new AddBookPage();
+            addBookFrame.Navigate(addBookPage);
+            addBookFrame.Visibility = Visibility.Hidden;
         }
 
-        private void libraryButton_Click(object sender, RoutedEventArgs e)
+        public void libraryButton_Click(object sender, RoutedEventArgs e)
         {
+            ShowBooksFrame();
+        }
 
+        public void ShowBooksFrame()
+        {
+            booksFrame.Visibility = Visibility.Visible;
+            bookInfoFrame.Visibility = Visibility.Hidden;
+            addBookFrame.Visibility = Visibility.Hidden;
+        }
+
+        public void ShowBookInfoFrame()
+        {
+            bookInfoFrame.Visibility = Visibility.Visible;
+            booksFrame.Visibility = Visibility.Hidden;
+            addBookFrame.Visibility = Visibility.Hidden;
+        }
+
+        public void ShowAddBookFrame()
+        {
+            addBookFrame.Visibility = Visibility.Visible;
+            booksFrame.Visibility = Visibility.Hidden;
+            bookInfoFrame.Visibility = Visibility.Hidden;
         }
 
         private void borrowedButton_Click(object sender, RoutedEventArgs e)
@@ -49,7 +86,7 @@ namespace Library.Windows
 
         private void addBookButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ShowAddBookFrame();
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)

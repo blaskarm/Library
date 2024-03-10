@@ -35,7 +35,8 @@ namespace Library.Pages.MemberPages
         ObservableCollection<Book> favorites;
         ObservableCollection<Book> borrowed;
 
-        public BookInfoPage(MemberWindow memberWindow, DatabaseConnection connection, Member member, ObservableCollection<Book> books, ObservableCollection<Book> favorites, ObservableCollection<Book> borrowed)
+        public BookInfoPage(MemberWindow memberWindow, DatabaseConnection connection, Member member,
+                            ObservableCollection<Book> books, ObservableCollection<Book> favorites, ObservableCollection<Book> borrowed)
         {
             InitializeComponent();
 

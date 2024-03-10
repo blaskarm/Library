@@ -70,6 +70,8 @@
             </StackPanel>
 
             <Frame x:Name="booksFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+            <Frame x:Name="bookInfoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+            <Frame x:Name="addBookFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
 
 
         </Grid>
