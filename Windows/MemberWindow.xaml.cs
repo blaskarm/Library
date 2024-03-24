@@ -48,7 +48,7 @@ namespace Library.Windows
 
             books = connection.GetBooksAsObservableCollection();
             favorites = connection.GetMemberFavorites(member.Id);
-            borrowed = connection.GetBorrowedBooks(member.Id);
+            borrowed = connection.GetMemberBorrowedBooks(member.Id);
 
             bookInfoPage = new BookInfoPage(this, connection, member, books, favorites, borrowed);
             bookInfoFrame.Navigate(bookInfoPage);

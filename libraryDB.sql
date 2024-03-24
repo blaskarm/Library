@@ -220,6 +220,18 @@ BEGIN
     SET email = _email
 	WHERE member_id = id;
 END$$
+
+CREATE PROCEDURE add_new_author(_name VARCHAR(150), _birthdate DATE, _nationality VARCHAR(45))
+BEGIN
+	INSERT INTO authors
+    VALUES (DEFAULT, _name, _birthdate, _nationality);
+END$$
+
+CREATE PROCEDURE add_new_book(_title VARCHAR(100), _pages INT, _published DATE, _available_copies INT, _author_id INT)
+BEGIN
+	INSERT INTO books
+    VALUES (DEFAULT, _title, _pages, _published, _available_copies, _author_id);
+END$$
 DELIMITER ;
 
 -- SELECT * FROM members;

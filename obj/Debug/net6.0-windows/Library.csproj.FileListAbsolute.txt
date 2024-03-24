@@ -56,10 +56,14 @@ C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\Fa
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\SettingsPage.g.cs
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\MemberPages\SettingsPage.baml
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Library.sourcelink.json
-C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Library.csproj.Up2Date
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\BookInfoPage.g.cs
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\BooksPage.g.cs
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\BookInfoPage.baml
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\BooksPage.baml
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\AddBookPage.g.cs
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\AddBookPage.baml
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Library.csproj.CopyComplete
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\BorrowedPage.g.cs
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\MembersPage.g.cs
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\BorrowedPage.baml
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\MembersPage.baml

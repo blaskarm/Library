@@ -95,6 +95,27 @@ namespace Library
             return members;
         }
 
+        public ObservableCollection<Member> GetMembersAsObservableCollection()
+        {
+            ObservableCollection<Member> members = new ObservableCollection<Member>();
+
+            mySqlConnection.Open();
+
+            string query = "SELECT * FROM members;";
+
+            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Member member = new Member((int)reader["member_id"], (string)reader["full_name"], (string)reader["member_password"], (string)reader["email"]);
+                members.Add(member);
+            }
+
+            mySqlConnection.Close();
+            return members;
+        }
+
         public ObservableCollection<Book> GetMemberFavorites(int id)
         {
             ObservableCollection<Book> favorites = new ObservableCollection<Book>();
@@ -140,7 +161,7 @@ namespace Library
             mySqlConnection.Close();
         }
 
-        public ObservableCollection<Book> GetBorrowedBooks(int id)
+        public ObservableCollection<Book> GetMemberBorrowedBooks(int id)
         {
             ObservableCollection<Book> books = new ObservableCollection<Book>();
 
@@ -160,6 +181,12 @@ namespace Library
             mySqlConnection.Close();
             return books;
         }
+
+        /*
+        public ObservableCollection<Book> GetAllBorrowedBooks()
+        {
+            ObservableCollection<Book> books = new ObservableCollection<Book>();
+        }*/
 
         public void AddBorrowedBook(int bookId, int memberId)
         {
@@ -255,6 +282,16 @@ namespace Library
             command.ExecuteNonQuery();
 
             mySqlConnection.Close();
+        }
+
+        public void AddNewBook(Book book, Author author)
+        {
+
+        }
+
+        public void AddNewAuthor(Author author)
+        {
+            
         }
     }
 }

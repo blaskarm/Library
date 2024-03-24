@@ -16,6 +16,12 @@
     <Compile Update="Pages\AdminPages\BooksPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\AdminPages\BorrowedPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\AdminPages\MembersPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\AllBooksPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +58,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\AdminPages\BooksPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\AdminPages\BorrowedPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\AdminPages\MembersPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\AllBooksPage.xaml">

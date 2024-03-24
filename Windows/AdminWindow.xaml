@@ -58,13 +58,14 @@
                 <Button x:Name="libraryButton" Content="Show Library" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 50 10 5"
                         Click="libraryButton_Click" Foreground="#e6e6e6"/>
 
-
+                <Button x:Name="addBookButton" Content="Add Recourses" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 0 10 5"
+                        Click="addBookButton_Click" Foreground="#e6e6e6"/>
 
                 <Button x:Name="borrowedButton" Content="Borrowed" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 0 10 5"
                         Click="borrowedButton_Click" Foreground="#e6e6e6"/>
 
-                <Button x:Name="addBookButton" Content="Add New Book" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 0 10 5"
-                        Click="addBookButton_Click" Foreground="#e6e6e6"/>
+                <Button x:Name="membersButton" Content="Members" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 0 10 5"
+                        Click="membersButton_Click"  Foreground="#e6e6e6"/>
 
 
             </StackPanel>
@@ -72,6 +73,8 @@
             <Frame x:Name="booksFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
             <Frame x:Name="bookInfoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
             <Frame x:Name="addBookFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+            <Frame x:Name="borrowedFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+            <Frame x:Name="membersFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
 
 
         </Grid>
