@@ -4,6 +4,8 @@ FC:\Users\Emil\source\repos\Library\MainWindow.xaml;;
 FC:\Users\Emil\source\repos\Library\Pages\AdminPages\AddBookPage.xaml;;
 FC:\Users\Emil\source\repos\Library\Pages\AdminPages\BookInfoPage.xaml;;
 FC:\Users\Emil\source\repos\Library\Pages\AdminPages\BooksPage.xaml;;
+FC:\Users\Emil\source\repos\Library\Pages\AdminPages\BorrowedPage.xaml;;
+FC:\Users\Emil\source\repos\Library\Pages\AdminPages\MembersPage.xaml;;
 FC:\Users\Emil\source\repos\Library\Pages\AllBooksPage.xaml;;
 FC:\Users\Emil\source\repos\Library\Pages\MemberPages\BookInfoPage.xaml;;
 FC:\Users\Emil\source\repos\Library\Pages\MemberPages\BorrowedPage.xaml;;
@@ -12,6 +14,4 @@ FC:\Users\Emil\source\repos\Library\Pages\MemberPages\SettingsPage.xaml;;
 FC:\Users\Emil\source\repos\Library\Windows\AdminWindow.xaml;;
 FC:\Users\Emil\source\repos\Library\Windows\MemberWindow.xaml;;
 FC:\Users\Emil\source\repos\Library\Windows\SignUpWindow.xaml;;
-FC:\Users\Emil\source\repos\Library\Pages\AdminPages\BorrowedPage.xaml;;
-FC:\Users\Emil\source\repos\Library\Pages\AdminPages\MembersPage.xaml;;
 

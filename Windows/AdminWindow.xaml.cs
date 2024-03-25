@@ -22,14 +22,14 @@ namespace Library.Windows
     /// </summary>
     public partial class AdminWindow : Window
     {
+        Administrator admin;
+        DatabaseConnection connection;
+
         BooksPage booksPage;
         BookInfoPage bookInfoPage;
         AddBookPage addBookPage;
         BorrowedPage borrowedPage;
         MembersPage membersPage;
-
-        DatabaseConnection connection;
-        Administrator admin;
 
         ObservableCollection<Book> books;
         ObservableCollection<Book> borrowed;
@@ -44,6 +44,7 @@ namespace Library.Windows
 
             books = connection.GetBooksAsObservableCollection();
             members = connection.GetMembersAsObservableCollection();
+            borrowed = connection.GetAllBorrowedBooks();
 
             bookInfoPage = new BookInfoPage(this, connection);
             bookInfoFrame.Navigate(bookInfoPage);

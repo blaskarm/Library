@@ -35,6 +35,7 @@ namespace Library.Pages.AdminPages
 
             this.adminWindow = adminWindow;
             this.bookInfoPage = bookInfoPage;
+
             this.borrowed = borrowed;
 
             borrowedDataGrid.ItemsSource = borrowed;
@@ -46,7 +47,7 @@ namespace Library.Pages.AdminPages
             {
                 book = borrowed[borrowedDataGrid.SelectedIndex];
                 borrowedDataGrid.SelectedItem = null;
-                //bookInfoPage.GetCurrentBook(book);
+                bookInfoPage.GetCurrentbook(book);
                 adminWindow.ShowBookInfoFrame();
             }
         }

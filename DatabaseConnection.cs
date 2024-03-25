@@ -20,6 +20,7 @@ namespace Library
 
         MySqlConnection mySqlConnection;
         Dictionary<int, Author>? authors;
+        Dictionary<int, Book> borrowedBooks;
 
         public DatabaseConnection()
         {
@@ -181,12 +182,26 @@ namespace Library
             mySqlConnection.Close();
             return books;
         }
-
-        /*
         public ObservableCollection<Book> GetAllBorrowedBooks()
         {
             ObservableCollection<Book> books = new ObservableCollection<Book>();
-        }*/
+
+            mySqlConnection.Open();
+
+            string query = "CALL get_borrowed_books();";
+
+            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Book book = new Book((int)reader["book_id"], (string)reader["title"], (int)reader["pages"], (DateTime)reader["published"], (int)reader["available_copies"], authors[(int)reader["author_id"]]);
+                books.Add(book);
+            }
+
+            mySqlConnection.Close();
+            return books;
+        }
 
         public void AddBorrowedBook(int bookId, int memberId)
         {

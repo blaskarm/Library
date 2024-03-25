@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Pages.AdminPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Library.Items
         public string FullName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        List<Book> borrowedBooks = new List<Book>();
 
         public Member(int id, string fullName, string password, string email)
         {
@@ -19,6 +21,11 @@ namespace Library.Items
             FullName = fullName;
             Password = password;
             Email = email;
+        }
+
+        public void AddBook(Book book)
+        {
+            borrowedBooks.Add(book);
         }
     }
 }
