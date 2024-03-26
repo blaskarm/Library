@@ -1,4 +1,6 @@
 ﻿using Library.Items;
+using Library.Pages.MemberPages;
+using Library.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,15 +24,32 @@ namespace Library.Pages.AdminPages
     /// </summary>
     public partial class AuthorsPage : Page
     {
+        AdminWindow adminWindow;
+        AuthorInfoPage authorInfoPage;
+
+        Author author;
         ObservableCollection<Author> authors;
 
-        public AuthorsPage(ObservableCollection<Author> authors)
+        public AuthorsPage(AdminWindow adminWindow, AuthorInfoPage authorInfoPage, ObservableCollection<Author> authors)
         {
             InitializeComponent();
 
+            this.adminWindow = adminWindow;
+            this.authorInfoPage = authorInfoPage;
             this.authors = authors;
 
             authorsDataGrid.ItemsSource = authors;
+        }
+
+        private void authorsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (authorsDataGrid.SelectedItem != null)
+            {
+                author = authors[authorsDataGrid.SelectedIndex];
+                authorsDataGrid.SelectedItem = null;
+                authorInfoPage.GetCurrentAuthor(author);
+                adminWindow.ShowAuthorInfoFrame();
+            }
         }
     }
 }

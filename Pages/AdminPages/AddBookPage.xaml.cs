@@ -67,6 +67,7 @@ namespace Library.Pages.AdminPages
 
                 authors.Add(author);
                 connection.AddNewAuthor(author);
+                MessageBox.Show("Author added to Library");
             }
 
             ResetAuthorTextboxes();
@@ -108,6 +109,7 @@ namespace Library.Pages.AdminPages
                             books.Add(book);
                             connection.AddNewBook(book, auth);
                             ResetBookTextboxes();
+                            MessageBox.Show("Book added to Library");
                             return;
                         }
                     }

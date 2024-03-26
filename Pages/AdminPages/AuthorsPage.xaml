@@ -16,7 +16,7 @@
         <TextBlock Text="Authors" FontSize="24" Margin="20 0 20 0"/>
         <Border Margin="20 0 20 20" Grid.Row="1">
 
-            <DataGrid x:Name="authorsDataGrid" SelectionMode="Single" Focusable="False" Style="{DynamicResource DataGridStyle1}"
+            <DataGrid x:Name="authorsDataGrid" SelectionChanged="authorsDataGrid_SelectionChanged" SelectionMode="Single" Focusable="False" Style="{DynamicResource DataGridStyle1}"
                   CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                   RowStyle="{DynamicResource DataGridRowStyle1}">
 

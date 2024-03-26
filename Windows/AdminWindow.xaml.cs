@@ -27,6 +27,7 @@ namespace Library.Windows
 
         BooksPage booksPage;
         BookInfoPage bookInfoPage;
+        AuthorInfoPage authorInfoPage;
         AddBookPage addBookPage;
         BorrowedPage borrowedPage;
         MembersPage membersPage;
@@ -53,7 +54,11 @@ namespace Library.Windows
             bookInfoFrame.Navigate(bookInfoPage);
             bookInfoFrame.Visibility = Visibility.Hidden;
 
-            booksPage = new BooksPage(this, bookInfoPage, connection, admin, books);
+            authorInfoPage = new AuthorInfoPage(this, connection);
+            authorInfoFrame.Navigate(authorInfoPage);
+            authorInfoFrame.Visibility = Visibility.Hidden;
+
+            booksPage = new BooksPage(this, bookInfoPage, books);
             booksFrame.Navigate(booksPage);
 
             addBookPage = new AddBookPage(connection, books, authors);
@@ -68,7 +73,7 @@ namespace Library.Windows
             membersFrame.Navigate(membersPage);
             membersFrame.Visibility = Visibility.Hidden;
 
-            authorsPage = new AuthorsPage(authors);
+            authorsPage = new AuthorsPage(this, authorInfoPage, authors);
             authorsFrame.Navigate(authorsPage);
             authorsFrame.Visibility = Visibility.Hidden;
         }
@@ -113,6 +118,7 @@ namespace Library.Windows
             borrowedFrame.Visibility = Visibility.Hidden;
             membersFrame.Visibility = Visibility.Hidden;
             authorsFrame.Visibility = Visibility.Hidden;
+            authorInfoFrame.Visibility = Visibility.Hidden;
         }
 
         public void ShowBookInfoFrame()
@@ -123,6 +129,7 @@ namespace Library.Windows
             borrowedFrame.Visibility = Visibility.Hidden;
             membersFrame.Visibility = Visibility.Hidden;
             authorsFrame.Visibility = Visibility.Hidden;
+            authorInfoFrame.Visibility = Visibility.Hidden;
         }
 
         public void ShowAddBookFrame()
@@ -133,6 +140,7 @@ namespace Library.Windows
             borrowedFrame.Visibility = Visibility.Hidden;
             membersFrame.Visibility = Visibility.Hidden;
             authorsFrame.Visibility = Visibility.Hidden;
+            authorInfoFrame.Visibility = Visibility.Hidden;
         }
 
         private void ShowBorrowedFrame()
@@ -143,6 +151,7 @@ namespace Library.Windows
             bookInfoFrame.Visibility = Visibility.Hidden;
             membersFrame.Visibility = Visibility.Hidden;
             authorsFrame.Visibility = Visibility.Hidden;
+            authorInfoFrame.Visibility = Visibility.Hidden;
         }
 
         private void ShowMembersFrame()
@@ -153,11 +162,24 @@ namespace Library.Windows
             addBookFrame.Visibility = Visibility.Hidden;
             borrowedFrame.Visibility = Visibility.Hidden;
             authorsFrame.Visibility = Visibility.Hidden;
+            authorInfoFrame.Visibility = Visibility.Hidden;
         }
 
-        private void ShowAuthorsFrame()
+        public void ShowAuthorsFrame()
         {
             authorsFrame.Visibility = Visibility.Visible;
+            booksFrame.Visibility = Visibility.Hidden;
+            bookInfoFrame.Visibility = Visibility.Hidden;
+            addBookFrame.Visibility = Visibility.Hidden;
+            borrowedFrame.Visibility = Visibility.Hidden;
+            membersFrame.Visibility = Visibility.Hidden;
+            authorInfoFrame.Visibility = Visibility.Hidden;
+        }
+
+        public void ShowAuthorInfoFrame()
+        {
+            authorInfoFrame.Visibility = Visibility.Visible;
+            authorsFrame.Visibility = Visibility.Hidden;
             booksFrame.Visibility = Visibility.Hidden;
             bookInfoFrame.Visibility = Visibility.Hidden;
             addBookFrame.Visibility = Visibility.Hidden;

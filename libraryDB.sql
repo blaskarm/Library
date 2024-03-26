@@ -30,7 +30,7 @@ VALUES (DEFAULT, "Emil Lindhult", "hej123", "emil@gmail.com"),
 CREATE TABLE authors (
 	author_id INT PRIMARY KEY AUTO_INCREMENT,
     full_name VARCHAR(150) NOT NULL,
-    birthdate DATETIME NOT NULL,
+    birthdate DATE NOT NULL,
     nationality VARCHAR(45) NOT NULL
 );
 

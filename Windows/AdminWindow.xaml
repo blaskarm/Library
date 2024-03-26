@@ -79,6 +79,7 @@
             <Frame x:Name="borrowedFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
             <Frame x:Name="membersFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
             <Frame x:Name="authorsFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+            <Frame x:Name="authorInfoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
 
 
         </Grid>

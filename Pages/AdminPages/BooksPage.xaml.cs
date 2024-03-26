@@ -26,22 +26,16 @@ namespace Library.Pages.AdminPages
     {
         AdminWindow adminWindow;
         BookInfoPage bookInfoPage;
-        DatabaseConnection connection;
 
         Book book;
-        Administrator admin;
-
         ObservableCollection<Book> books;
 
-        public BooksPage(AdminWindow adminWindow, BookInfoPage bookInfoPage, DatabaseConnection connection, Administrator admin,
-                         ObservableCollection<Book> books)
+        public BooksPage(AdminWindow adminWindow, BookInfoPage bookInfoPage, ObservableCollection<Book> books)
         {
             InitializeComponent();
 
             this.adminWindow = adminWindow;
             this.bookInfoPage = bookInfoPage;
-            this.connection = connection;
-            this.admin = admin;
             this.books = books;
 
             booksDataGrid.ItemsSource = books;
