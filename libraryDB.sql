@@ -118,7 +118,9 @@ VALUES (5, 2),
 	   (4, 3),
 	   (12, 8),
 	   (7, 1),
-	   (2, 2);
+	   (2, 2),
+       (3, 4),
+       (3, 2);
 
 
 DELIMITER $$
@@ -255,8 +257,9 @@ BEGIN
 END$$
 DELIMITER ;
 
--- SELECT * FROM members;
--- SELECT * FROM books;
--- SELECT * FROM authors;
--- SELECT * FROM loans;
--- SELECT * FROM favorites;
+DELETE FROM favorites
+WHERE book_id = 3;
+
+DELETE FROM books
+WHERE book_id = 3;
+SELECT * FROM books;

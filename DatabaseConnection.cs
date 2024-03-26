@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Library
 {
@@ -22,6 +23,8 @@ namespace Library
         MySqlConnection mySqlConnection;
         Dictionary<int, Author>? authors;
         Dictionary<int, Book> borrowedBooks;
+        List<Book> favorites;
+        
 
         public DatabaseConnection()
         {
@@ -83,10 +86,11 @@ namespace Library
 
             mySqlConnection.Open();
 
-            string query = "SELECT * FROM authors;";
+            string query1 = "SELECT * FROM authors;";
 
-            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
-            MySqlDataReader reader = command.ExecuteReader();
+            MySqlCommand command1 = new MySqlCommand(query1, mySqlConnection);
+
+            MySqlDataReader reader = command1.ExecuteReader();
 
             while (reader.Read())
             {
@@ -165,18 +169,6 @@ namespace Library
             mySqlConnection.Open();
 
             string query = $"CALL add_to_favorites({bookId}, {memberId});";
-
-            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
-            MySqlDataReader reader = command.ExecuteReader();
-
-            mySqlConnection.Close();
-        }
-
-        public void RemoveFromFavorites(int bookId, int memberId)
-        {
-            mySqlConnection.Open();
-
-            string query = $"CALL remove_from_favorites({bookId}, {memberId});";
 
             MySqlCommand command = new MySqlCommand(query, mySqlConnection);
             MySqlDataReader reader = command.ExecuteReader();
@@ -364,5 +356,104 @@ namespace Library
 
             mySqlConnection.Close();
         }
+
+        public void RemoveBook(Book book)
+        {
+            mySqlConnection.Open();
+
+            RemoveFromFavorites(book);
+            string query = $"DELETE FROM books WHERE books.book_id = {book.Id};";
+
+            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+
+            command.ExecuteNonQuery();
+
+            mySqlConnection.Close();
+        }
+
+        public void RemoveAuthor(Author author)
+        {
+            mySqlConnection.Open();
+            //DeleteAuthorBooks(books, mySqlConnection);
+            List<Book> books = new List<Book>();
+            
+            books = GetAuthorBooks(author);
+            RemoveFromFavorites(books);
+
+            string query1 = $"DELETE FROM books WHERE author_id = {author.Id};";
+            string query2 = $"DELETE FROM authors WHERE author_id = {author.Id};";
+
+            MySqlCommand command1 = new MySqlCommand(query1, mySqlConnection);
+            MySqlCommand command2 = new MySqlCommand(query2, mySqlConnection);
+
+            command1.ExecuteNonQuery();
+            command2.ExecuteNonQuery();
+
+            mySqlConnection.Close();
+        }
+        private List<Book> GetAuthorBooks(Author author)
+        {
+            List<Book> books = new List<Book>();
+
+            string query = $"SELECT * FROM books WHERE author_id = {author.Id};";
+
+            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Book book = new Book((int)reader["book_id"], (string)reader["title"], (int)reader["pages"], (DateTime)reader["published"], (int)reader["available_copies"], authors[(int)reader["author_id"]]);
+                books.Add(book);
+            }
+            reader.Close();
+            return books;
+        }
+
+        public void RemoveFromFavorites(int bookId, int memberId)
+        {
+            mySqlConnection.Open();
+
+            string query = $"CALL remove_from_favorites({bookId}, {memberId});";
+
+            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            mySqlConnection.Close();
+        }
+
+        private void RemoveFromFavorites(Book book)
+        {
+            string query = $"DELETE FROM favorites WHERE book_id = {book.Id};";
+
+            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+
+            command.ExecuteNonQuery();
+        }
+
+        private void RemoveFromFavorites(List<Book> books)
+        {
+            for (int i = 0; i < books.Count; i++)
+            {
+                //favorites.Remove(books[i]);
+                Book b = books[i];
+                string query = $"DELETE FROM favorites WHERE book_id = {b.Id}";
+                MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+
+                command.ExecuteNonQuery();
+            }
+        }
+        /*
+        private void DeleteAuthorBooks(List<Book> books, MySqlConnection mySqlConnection)
+        {
+            for (int i = 0; i < authors.Count; i++)
+            {
+                string query = $"DELETE FROM books WHERE author_id = {authors[i].Id}";
+
+                MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+
+                command.ExecuteNonQuery();
+            }
+        }*/
     }
 }

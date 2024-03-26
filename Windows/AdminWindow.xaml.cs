@@ -50,7 +50,7 @@ namespace Library.Windows
             borrowed = connection.GetAllBorrowedBooks();
             authors = connection.GetAuthorsAsObservableCollection();
 
-            bookInfoPage = new BookInfoPage(this, connection);
+            bookInfoPage = new BookInfoPage(this, connection, books, borrowed);
             bookInfoFrame.Navigate(bookInfoPage);
             bookInfoFrame.Visibility = Visibility.Hidden;
 

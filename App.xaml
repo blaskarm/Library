@@ -63,6 +63,12 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
 
@@ -86,6 +92,7 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="BorderBrush" Value="#d9d9d9" TargetName="border"/>
+                                <Setter Property="Cursor" Value="Hand" />
                             </Trigger>
 
                             <Trigger Property="IsKeyboardFocused" Value="True">
@@ -118,7 +125,9 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#dcdcdc" />
+                    <Setter Property="Cursor" Value="Hand" />
                 </Trigger>
+
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="#dfdfdf" />
                 </Trigger>
@@ -303,6 +312,7 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#cccccc" />
                     <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Cursor" Value="Hand" />
                 </Trigger>
 
                 <Trigger Property="IsSelected" Value="True">

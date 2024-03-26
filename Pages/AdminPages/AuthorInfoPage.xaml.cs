@@ -37,7 +37,7 @@ namespace Library.Pages.AdminPages
 
         private void removeAuthor_Click(object sender, RoutedEventArgs e)
         {
-
+            connection.RemoveAuthor(author);
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
