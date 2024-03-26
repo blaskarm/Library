@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Library
 {
@@ -53,6 +54,27 @@ namespace Library
 
             mySqlConnection.Close();
             return books;
+        }
+
+        public ObservableCollection<Author> GetAuthorsAsObservableCollection()
+        {
+            ObservableCollection<Author> authors = new ObservableCollection<Author>();
+
+            mySqlConnection.Open();
+
+            string query = "SELECT * FROM authors;";
+
+            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Author author = new Author((int)reader["author_id"], (string)reader["full_name"], (DateTime)reader["birthdate"], (string)reader["nationality"]);
+                authors.Add(author);
+            }
+
+            mySqlConnection.Close();
+            return authors;
         }
 
         public void GetAuthorsAsDictionary()
@@ -207,10 +229,18 @@ namespace Library
         {
             mySqlConnection.Open();
 
-            string query = $"CALL borrow_book({bookId}, {memberId});";
+            string storedProcedure = "borrow_book";
 
-            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
-            MySqlDataReader reader = command.ExecuteReader();
+            MySqlCommand command = new MySqlCommand(storedProcedure, mySqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            MySqlParameter p1 = new MySqlParameter("book_id", MySqlDbType.Int32) { Value = bookId };
+            MySqlParameter p2 = new MySqlParameter("member_id", MySqlDbType.Int32) { Value = memberId };
+
+            command.Parameters.Add(p1);
+            command.Parameters.Add(p2);
+
+            command.ExecuteNonQuery();
 
             mySqlConnection.Close();
         }
@@ -301,12 +331,38 @@ namespace Library
 
         public void AddNewBook(Book book, Author author)
         {
+            mySqlConnection.Open();
 
+            string query = "INSERT INTO books VALUES (DEFAULT, @title, @pages, @published, @availableCopies, @authorId)";
+
+            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+
+            command.Parameters.AddWithValue("@title", book.Title);
+            command.Parameters.AddWithValue("@pages", book.Pages);
+            command.Parameters.AddWithValue("@published", book.Published.Date);
+            command.Parameters.AddWithValue("@availableCopies", book.AvailableCopies);
+            command.Parameters.AddWithValue("@authorId", author.Id);
+
+            command.ExecuteNonQuery();
+
+            mySqlConnection.Close();
         }
 
         public void AddNewAuthor(Author author)
         {
-            
+            mySqlConnection.Open();
+
+            string query = $"INSERT INTO authors VALUES (DEFAULT, @name, @date, @nationality);";
+
+            MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+
+            command.Parameters.AddWithValue("@name", author.FullName);
+            command.Parameters.AddWithValue("@date", author.Birthdate.Date);
+            command.Parameters.AddWithValue("@nationality", author.Nationality);
+
+            command.ExecuteNonQuery();
+
+            mySqlConnection.Close();
         }
     }
 }

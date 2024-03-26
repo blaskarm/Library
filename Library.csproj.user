@@ -10,6 +10,9 @@
     <Compile Update="Pages\AdminPages\AddBookPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\AdminPages\AuthorsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\AdminPages\BookInfoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\AdminPages\AddBookPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\AdminPages\AuthorsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\AdminPages\BookInfoPage.xaml">

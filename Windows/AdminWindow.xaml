@@ -6,7 +6,7 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:Library.Windows"
         mc:Ignorable="d"
-        Title="Administrator" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
+        Title="Administrator" Height="650" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
         Foreground="#e6e6e6" Background="#404040" FontFamily="Arial">
 
 
@@ -55,8 +55,11 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel>
-                <Button x:Name="libraryButton" Content="Show Library" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 50 10 5"
+                <Button x:Name="libraryButton" Content="Books" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 50 10 5"
                         Click="libraryButton_Click" Foreground="#e6e6e6"/>
+
+                <Button x:Name="authorsButton" Content="Authors" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 0 10 5"
+                        Click="authorsButton_Click"  Foreground="#e6e6e6"/>
 
                 <Button x:Name="addBookButton" Content="Add Recourses" Style="{DynamicResource RoundedButtonStyle}" Padding="8" Margin="10 0 10 5"
                         Click="addBookButton_Click" Foreground="#e6e6e6"/>
@@ -75,6 +78,7 @@
             <Frame x:Name="addBookFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
             <Frame x:Name="borrowedFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
             <Frame x:Name="membersFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+            <Frame x:Name="authorsFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
 
 
         </Grid>

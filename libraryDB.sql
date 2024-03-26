@@ -10,9 +10,9 @@ TO library_manager;*/
 
 CREATE TABLE members (
 	member_id INT PRIMARY KEY AUTO_INCREMENT,
-    full_name VARCHAR(150),
-    member_password VARCHAR(25),
-    email VARCHAR(320)
+    full_name VARCHAR(150) NOT NULL,
+    member_password VARCHAR(25) NOT NULL,
+    email VARCHAR(320) NOT NULL
 );
 
 INSERT INTO members
@@ -29,9 +29,9 @@ VALUES (DEFAULT, "Emil Lindhult", "hej123", "emil@gmail.com"),
 
 CREATE TABLE authors (
 	author_id INT PRIMARY KEY AUTO_INCREMENT,
-    full_name VARCHAR(150),
-    birthdate DATE,
-    nationality VARCHAR(45)
+    full_name VARCHAR(150) NOT NULL,
+    birthdate DATETIME NOT NULL,
+    nationality VARCHAR(45) NOT NULL
 );
 
 INSERT INTO authors
@@ -44,14 +44,14 @@ VALUES (DEFAULT, "Hanya Yanagihara", "1974-09-20", "American"),
 	   (DEFAULT, "John Grisham", "1955-02-08", "American"),
 	   (DEFAULT, "Susanna Clarke", "1959-11-01", "British"),
        (DEFAULT, "Peter James", "1948-08-22", "British");
-
+       
 
 CREATE TABLE books (
 	book_id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(100),
-    pages INT,
-    published DATE,
-    available_copies INT,
+    title VARCHAR(100) NOT NULL,
+    pages INT NOT NULL,
+    published DATE NOT NULL,
+    available_copies INT NOT NULL,
     author_id INT,
     FOREIGN KEY(author_id) REFERENCES authors(author_id)
 );
@@ -84,12 +84,23 @@ VALUES (DEFAULT, "To Paradise", 736, "2022-01-05", 5, 1),
 
 
 CREATE TABLE borrowed (
-	borrowed_id INT PRIMARY KEY AUTO_INCREMENT,
     book_id INT,
     member_id INT,
     FOREIGN KEY(book_id) REFERENCES books(book_id),
     FOREIGN KEY(member_id) REFERENCES members(member_id)
 );
+
+INSERT INTO borrowed
+VALUES (1, 4),
+	   (4, 2),
+	   (2, 3),
+	   (9, 1),
+	   (14, 5),
+	   (11, 1),
+	   (7, 2),
+	   (5, 1),
+       (2, 2),
+       (2, 1);
 
 
 CREATE TABLE favorites (
@@ -184,7 +195,7 @@ DELIMITER $$
 CREATE PROCEDURE borrow_book(book_id INT, member_id INT)
 BEGIN
 	INSERT INTO borrowed
-    VALUES (DEFAULT, book_id, member_id);
+    VALUES (book_id, member_id);
 END$$
 DELIMITER ;
 
@@ -231,6 +242,16 @@ CREATE PROCEDURE add_new_book(_title VARCHAR(100), _pages INT, _published DATE, 
 BEGIN
 	INSERT INTO books
     VALUES (DEFAULT, _title, _pages, _published, _available_copies, _author_id);
+END$$
+
+CREATE PROCEDURE get_borrowed_books()
+BEGIN
+	SELECT books.book_id, title, pages, published, available_copies, author_id, members.member_id
+	FROM books
+	INNER JOIN borrowed
+	ON books.book_id = borrowed.book_id
+	INNER JOIN members
+	ON borrowed.member_id = members.member_id;
 END$$
 DELIMITER ;
 

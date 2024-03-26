@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Emil\source\repos\Library\App.xaml
-141179558095
+15-1889131235
 
-24109075813
-204454148287
-MainWindow.xaml;Pages\AdminPages\AddBookPage.xaml;Pages\AdminPages\BookInfoPage.xaml;Pages\AdminPages\BooksPage.xaml;Pages\AdminPages\BorrowedPage.xaml;Pages\AdminPages\MembersPage.xaml;Pages\AllBooksPage.xaml;Pages\MemberPages\BookInfoPage.xaml;Pages\MemberPages\BorrowedPage.xaml;Pages\MemberPages\FavoritesPage.xaml;Pages\MemberPages\SettingsPage.xaml;Windows\AdminWindow.xaml;Windows\MemberWindow.xaml;Windows\SignUpWindow.xaml;
+25-474524638
+204701465688
+MainWindow.xaml;Pages\AdminPages\AddBookPage.xaml;Pages\AdminPages\AuthorsPage.xaml;Pages\AdminPages\BookInfoPage.xaml;Pages\AdminPages\BooksPage.xaml;Pages\AdminPages\BorrowedPage.xaml;Pages\AdminPages\MembersPage.xaml;Pages\AllBooksPage.xaml;Pages\MemberPages\BookInfoPage.xaml;Pages\MemberPages\BorrowedPage.xaml;Pages\MemberPages\FavoritesPage.xaml;Pages\MemberPages\SettingsPage.xaml;Windows\AdminWindow.xaml;Windows\MemberWindow.xaml;Windows\SignUpWindow.xaml;
 
-False
+True
 

@@ -21,22 +21,29 @@
             <TextBlock Text="Add Book" FontSize="26" FontWeight="Bold"/>
 
             <TextBlock Text="Title" FontSize="18" Margin="0 30 0 0" Opacity="0.8"/>
-            <TextBox Width="250" HorizontalAlignment="Left" Padding="5"/>
+            <TextBox x:Name="bookTitleTextbox" Width="250" HorizontalAlignment="Left" Padding="5"/>
 
             <TextBlock Text="Author" FontSize="18" Margin="0 20 0 0" Opacity="0.8"/>
-            <TextBox Width="250" HorizontalAlignment="Left" Padding="5"/>
+            <TextBox x:Name="authorTextbox" Width="250" HorizontalAlignment="Left" Padding="5"/>
 
-            <TextBlock Text="Published" FontSize="18" Margin="0 20 0 0" Opacity="0.8"/>
-            <TextBox Width="250" HorizontalAlignment="Left" Padding="5"/>
+            <!--<TextBlock Text="Published" FontSize="18" Margin="0 20 0 0" Opacity="0.8"/>
+            <TextBox x:Name="publishedTextbox" Width="250" HorizontalAlignment="Left" Padding="5"/>-->
 
             <TextBlock Text="Pages" FontSize="16" Margin="0 20 0 0" Opacity="0.8"/>
-            <TextBox Width="250" HorizontalAlignment="Left" Padding="5"/>
+            <TextBox x:Name="pagesTextbox" Width="250" HorizontalAlignment="Left" Padding="5"/>
 
             <TextBlock Text="Available Copies" FontSize="16" Margin="0 20 0 0" Opacity="0.8"/>
-            <TextBox Width="250" HorizontalAlignment="Left" Padding="5"/>
+            <TextBox x:Name="availableCopiesTextbox" Width="250" HorizontalAlignment="Left" Padding="5"/>
 
-            <Button x:Name="addBookButton" Style="{DynamicResource RoundedButtonStyle}" Content="Add Book"
-                    Width="100" Height="22" Margin="40 30 0 0" />
+            <TextBlock Text="Published" FontSize="16" Margin="0 20 0 0" Opacity="0.8"/>
+            
+            <StackPanel Orientation="Horizontal">
+                <Calendar x:Name="bookCalendar" HorizontalAlignment="Left" DisplayMode="Decade"/>
+
+                <Button x:Name="addBookButton" Style="{DynamicResource RoundedButtonStyle}" Content="Add Book"
+                        Width="100" Height="22" Click="addBookButton_Click" VerticalAlignment="Bottom"
+                        Margin="40 0 0 0"/>
+            </StackPanel>
 
         </StackPanel>
 
@@ -45,17 +52,22 @@
             <TextBlock Text="Add Author" FontSize="26" FontWeight="Bold"/>
 
             <TextBlock Text="Name" FontSize="18" Margin="0 30 0 0" Opacity="0.8"/>
-            <TextBox Width="250" HorizontalAlignment="Left" Padding="5"/>
+            <TextBox x:Name="authorNameTextbox" Width="250" HorizontalAlignment="Left" Padding="5"/>
 
-            <TextBlock Text="Birthdate" FontSize="16" Margin="0 20 0 0" Opacity="0.8"/>
-            <TextBox Width="250" HorizontalAlignment="Left" Padding="5"/>
+            <!--<TextBlock Text="Birthdate" FontSize="16" Margin="0 20 0 0" Opacity="0.8"/>
+            <TextBox x:Name="birthdateTextbox" Width="250" HorizontalAlignment="Left" Padding="5"/>-->
 
             <TextBlock Text="Nationality" FontSize="16" Margin="0 20 0 0" Opacity="0.8"/>
-            <TextBox Width="250" HorizontalAlignment="Left" Padding="5"/>
+            <TextBox x:Name="nationalityTextbox" Width="250" HorizontalAlignment="Left" Padding="5"/>
 
-            <Button x:Name="addAuthorButton" Style="{DynamicResource RoundedButtonStyle}" Content="Add Author"
-                    Width="100" Height="22" Margin="44 30 0 0" Click="addAuthorButton_Click"/>
+            <TextBlock Text="Birthdate" FontSize="16" Margin="0 20 0 0" Opacity="0.8"/>
+            <StackPanel Orientation="Horizontal">
+                <Calendar x:Name="authorCalendar" Margin="0 20 40 0" DisplayMode="Decade"/>
 
+                <Button x:Name="addAuthorButton" Style="{DynamicResource RoundedButtonStyle}" Content="Add Author"
+                        Width="100" Height="22" Click="addAuthorButton_Click" VerticalAlignment="Bottom"/>
+            </StackPanel>
+                
         </StackPanel>
 
     </Grid>

@@ -30,7 +30,9 @@ namespace Library.Windows
         AddBookPage addBookPage;
         BorrowedPage borrowedPage;
         MembersPage membersPage;
+        AuthorsPage authorsPage;
 
+        ObservableCollection<Author> authors;
         ObservableCollection<Book> books;
         ObservableCollection<Book> borrowed;
         ObservableCollection<Member> members;
@@ -45,6 +47,7 @@ namespace Library.Windows
             books = connection.GetBooksAsObservableCollection();
             members = connection.GetMembersAsObservableCollection();
             borrowed = connection.GetAllBorrowedBooks();
+            authors = connection.GetAuthorsAsObservableCollection();
 
             bookInfoPage = new BookInfoPage(this, connection);
             bookInfoFrame.Navigate(bookInfoPage);
@@ -53,7 +56,7 @@ namespace Library.Windows
             booksPage = new BooksPage(this, bookInfoPage, connection, admin, books);
             booksFrame.Navigate(booksPage);
 
-            addBookPage = new AddBookPage();
+            addBookPage = new AddBookPage(connection, books, authors);
             addBookFrame.Navigate(addBookPage);
             addBookFrame.Visibility = Visibility.Hidden;
 
@@ -64,52 +67,10 @@ namespace Library.Windows
             membersPage = new MembersPage(members);
             membersFrame.Navigate(membersPage);
             membersFrame.Visibility = Visibility.Hidden;
-        }
 
-        public void libraryButton_Click(object sender, RoutedEventArgs e)
-        {
-            ShowBooksFrame();
-        }
-
-        public void ShowBooksFrame()
-        {
-            booksFrame.Visibility = Visibility.Visible;
-            bookInfoFrame.Visibility = Visibility.Hidden;
-            addBookFrame.Visibility = Visibility.Hidden;
-            borrowedFrame.Visibility = Visibility.Hidden;
-            membersFrame.Visibility = Visibility.Hidden;
-        }
-
-        public void ShowBookInfoFrame()
-        {
-            bookInfoFrame.Visibility = Visibility.Visible;
-            booksFrame.Visibility = Visibility.Hidden;
-            addBookFrame.Visibility = Visibility.Hidden;
-            borrowedFrame.Visibility = Visibility.Hidden;
-            membersFrame.Visibility = Visibility.Hidden;
-        }
-
-        public void ShowAddBookFrame()
-        {
-            addBookFrame.Visibility = Visibility.Visible;
-            booksFrame.Visibility = Visibility.Hidden;
-            bookInfoFrame.Visibility = Visibility.Hidden;
-            borrowedFrame.Visibility = Visibility.Hidden;
-            membersFrame.Visibility = Visibility.Hidden;
-        }
-
-        private void borrowedButton_Click(object sender, RoutedEventArgs e)
-        {
-            borrowedFrame.Visibility = Visibility.Visible;
-            booksFrame.Visibility = Visibility.Hidden;
-            addBookFrame.Visibility = Visibility.Hidden;
-            bookInfoFrame.Visibility = Visibility.Hidden;
-            membersFrame.Visibility = Visibility.Hidden;
-        }
-
-        private void addBookButton_Click(object sender, RoutedEventArgs e)
-        {
-            ShowAddBookFrame();
+            authorsPage = new AuthorsPage(authors);
+            authorsFrame.Navigate(authorsPage);
+            authorsFrame.Visibility = Visibility.Hidden;
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
@@ -119,13 +80,89 @@ namespace Library.Windows
             this.Close();
         }
 
+        public void libraryButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowBooksFrame();
+        }
+
+        private void authorsButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowAuthorsFrame();
+        }
+
+        private void addBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowAddBookFrame();
+        }
+
+        private void borrowedButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowBorrowedFrame();
+        }
+
         private void membersButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowMembersFrame();
+        }
+
+        public void ShowBooksFrame()
+        {
+            booksFrame.Visibility = Visibility.Visible;
+            bookInfoFrame.Visibility = Visibility.Hidden;
+            addBookFrame.Visibility = Visibility.Hidden;
+            borrowedFrame.Visibility = Visibility.Hidden;
+            membersFrame.Visibility = Visibility.Hidden;
+            authorsFrame.Visibility = Visibility.Hidden;
+        }
+
+        public void ShowBookInfoFrame()
+        {
+            bookInfoFrame.Visibility = Visibility.Visible;
+            booksFrame.Visibility = Visibility.Hidden;
+            addBookFrame.Visibility = Visibility.Hidden;
+            borrowedFrame.Visibility = Visibility.Hidden;
+            membersFrame.Visibility = Visibility.Hidden;
+            authorsFrame.Visibility = Visibility.Hidden;
+        }
+
+        public void ShowAddBookFrame()
+        {
+            addBookFrame.Visibility = Visibility.Visible;
+            booksFrame.Visibility = Visibility.Hidden;
+            bookInfoFrame.Visibility = Visibility.Hidden;
+            borrowedFrame.Visibility = Visibility.Hidden;
+            membersFrame.Visibility = Visibility.Hidden;
+            authorsFrame.Visibility = Visibility.Hidden;
+        }
+
+        private void ShowBorrowedFrame()
+        {
+            borrowedFrame.Visibility = Visibility.Visible;
+            booksFrame.Visibility = Visibility.Hidden;
+            addBookFrame.Visibility = Visibility.Hidden;
+            bookInfoFrame.Visibility = Visibility.Hidden;
+            membersFrame.Visibility = Visibility.Hidden;
+            authorsFrame.Visibility = Visibility.Hidden;
+        }
+
+        private void ShowMembersFrame()
         {
             membersFrame.Visibility = Visibility.Visible;
             booksFrame.Visibility = Visibility.Hidden;
             bookInfoFrame.Visibility = Visibility.Hidden;
             addBookFrame.Visibility = Visibility.Hidden;
             borrowedFrame.Visibility = Visibility.Hidden;
+            authorsFrame.Visibility = Visibility.Hidden;
+        }
+
+        private void ShowAuthorsFrame()
+        {
+            authorsFrame.Visibility = Visibility.Visible;
+            booksFrame.Visibility = Visibility.Hidden;
+            bookInfoFrame.Visibility = Visibility.Hidden;
+            addBookFrame.Visibility = Visibility.Hidden;
+            borrowedFrame.Visibility = Visibility.Hidden;
+            membersFrame.Visibility = Visibility.Hidden;
         }
     }
 }

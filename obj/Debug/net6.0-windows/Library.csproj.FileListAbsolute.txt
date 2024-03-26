@@ -66,4 +66,6 @@ C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\Bor
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\MembersPage.g.cs
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\BorrowedPage.baml
 C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\MembersPage.baml
-C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Library.csproj.Up2Date
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Library.csproj.CopyComplete
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\AuthorsPage.g.cs
+C:\Users\Emil\source\repos\Library\obj\Debug\net6.0-windows\Pages\AdminPages\AuthorsPage.baml
