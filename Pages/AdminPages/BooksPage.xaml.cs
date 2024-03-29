@@ -26,16 +26,18 @@ namespace Library.Pages.AdminPages
     {
         AdminWindow adminWindow;
         BookInfoPage bookInfoPage;
+        DatabaseConnection connection;
 
         Book book;
         ObservableCollection<Book> books;
 
-        public BooksPage(AdminWindow adminWindow, BookInfoPage bookInfoPage, ObservableCollection<Book> books)
+        public BooksPage(AdminWindow adminWindow, BookInfoPage bookInfoPage, DatabaseConnection connection, ObservableCollection<Book> books)
         {
             InitializeComponent();
 
             this.adminWindow = adminWindow;
             this.bookInfoPage = bookInfoPage;
+            this.connection = connection;
             this.books = books;
 
             booksDataGrid.ItemsSource = books;
@@ -50,6 +52,21 @@ namespace Library.Pages.AdminPages
                 bookInfoPage.GetCurrentbook(book);
                 adminWindow.ShowBookInfoFrame();
             }
+        }
+
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            books = connection.SearchBook(txtSearch.Text);
+            booksDataGrid.ItemsSource = null;
+            booksDataGrid.ItemsSource = books;
+            txtSearch.Text = "";
+        }
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+            books = connection.GetBooksAsObservableCollection();
+            booksDataGrid.ItemsSource = null;
+            booksDataGrid.ItemsSource = books;
         }
     }
 }

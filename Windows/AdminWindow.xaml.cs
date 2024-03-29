@@ -58,7 +58,7 @@ namespace Library.Windows
             authorInfoFrame.Navigate(authorInfoPage);
             authorInfoFrame.Visibility = Visibility.Hidden;
 
-            booksPage = new BooksPage(this, bookInfoPage, books);
+            booksPage = new BooksPage(this, bookInfoPage, connection, books);
             booksFrame.Navigate(booksPage);
 
             addBookPage = new AddBookPage(connection, books, authors);

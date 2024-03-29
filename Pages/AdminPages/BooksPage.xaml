@@ -3,17 +3,42 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:local="clr-namespace:Library.Pages.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="800"
       Title="BooksPage" Background="#404040" Foreground="#e6e6e6" FontFamily="Arial">
 
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Available Books" FontSize="24" Margin="20 0 20 0"/>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Available Books" FontSize="24" Margin="20 0 20 0" VerticalAlignment="Center"/>
+
+            <Grid Width="300" Margin="100 0 0 0">
+                <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
+                               Panel.ZIndex="1" Text="Search here ..."
+                               Visibility="{Binding ElementName=txtSearch,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
+
+                <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}"/>
+
+
+            </Grid>
+            <Button x:Name="searchButton" Click="searchButton_Click"  Margin="10 0 30 0" Style="{DynamicResource topButton}">
+                <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
+                            Foreground="#b0b9c6" HorizontalAlignment="Center"/>
+            </Button>
+
+            <Button x:Name="resetButton" Click="resetButton_Click" Content="Reset" Style="{DynamicResource RoundedButtonStyle}" Padding="5" Height="30" Width="70"/>
+        </StackPanel>
+
         <Border Margin="20 0 20 20" Grid.Row="1">
 
             <DataGrid x:Name="booksDataGrid" SelectionMode="Single" SelectionChanged="booksDataGrid_SelectionChanged"  Focusable="False" Style="{DynamicResource DataGridStyle1}"

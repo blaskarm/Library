@@ -54,7 +54,7 @@ namespace Library.Windows
             bookInfoFrame.Navigate(bookInfoPage);
             bookInfoFrame.Visibility = Visibility.Hidden;
 
-            booksPage = new AllBooksPage(this, bookInfoPage, books);
+            booksPage = new AllBooksPage(this, bookInfoPage, connection, books);
             booksFrame.Navigate(booksPage);
 
             favoritesPage = new FavoritesPage(this, bookInfoPage, favorites);

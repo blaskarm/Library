@@ -29,23 +29,6 @@
             <TextBlock Text="Library Management" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="16" Padding="5"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Grid Width="300" HorizontalAlignment="Left" >
-                <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
-                               Panel.ZIndex="1" Text="Search here ..."
-                               Visibility="{Binding ElementName=txtSearch,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
-
-                <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}"/>
-
-
-            </Grid>
-            <Button Margin="10 0 30 0" Style="{DynamicResource topButton}">
-                <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
-                            Foreground="#b0b9c6" HorizontalAlignment="Center"/>
-            </Button>
-            <TextBlock Text="{Binding FullName}" VerticalAlignment="Center" FontSize="16" Padding="5" Margin="0 0 30 0"/>
-        </StackPanel>
-
         <Grid Grid.Row="1">
 
             <Grid.ColumnDefinitions>

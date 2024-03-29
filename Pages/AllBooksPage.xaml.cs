@@ -26,16 +26,18 @@ namespace Library.Pages
     {
         MemberWindow memberWindow;
         BookInfoPage bookInfoPage;
+        DatabaseConnection connection;
 
         ObservableCollection<Book> books;
         Book book;
 
-        public AllBooksPage(MemberWindow memberWindow, BookInfoPage bookInfoPage, ObservableCollection<Book> books)
+        public AllBooksPage(MemberWindow memberWindow, BookInfoPage bookInfoPage, DatabaseConnection connection, ObservableCollection<Book> books)
         {
             InitializeComponent();
 
             this.memberWindow = memberWindow;
             this.bookInfoPage = bookInfoPage;
+            this.connection = connection;
             this.books = books;
             booksDataGrid.ItemsSource = books;
         }
@@ -53,6 +55,21 @@ namespace Library.Pages
 
         public void RefreshBooks()
         {
+            booksDataGrid.ItemsSource = null;
+            booksDataGrid.ItemsSource = books;
+        }
+
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            books = connection.SearchBook(txtSearch.Text);
+            booksDataGrid.ItemsSource = null;
+            booksDataGrid.ItemsSource = books;
+            txtSearch.Text = "";
+        }
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+            books = connection.GetBooksAsObservableCollection();
             booksDataGrid.ItemsSource = null;
             booksDataGrid.ItemsSource = books;
         }
